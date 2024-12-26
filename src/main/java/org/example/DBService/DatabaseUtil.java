@@ -2,7 +2,9 @@ package org.example.DBService;
 
 import org.example.manager.AdminUserManager;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DatabaseUtil {
 
@@ -33,22 +35,5 @@ public class DatabaseUtil {
         } catch (SQLException e) {
             throw new RuntimeException("Error ensuring admin user: " + e.getMessage(), e);
         }
-    }
-
-    public static boolean authenticateUser(String username, String password) throws SQLException {
-        String query = "SELECT * FROM users WHERE username = ?";
-
-        try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-
-            statement.setString(1, username);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                String dbPassword = resultSet.getString("password");
-                return dbPassword.equals(password);
-            }
-        }
-        return false;
     }
 }

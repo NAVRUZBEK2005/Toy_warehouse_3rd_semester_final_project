@@ -47,7 +47,7 @@ public class ProductManager {
     }
 
     // Product Methods
-    private void addProduct() {
+    public void addProduct() {
         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
         System.out.print("Enter product description: ");
@@ -75,7 +75,7 @@ public class ProductManager {
         }
     }
 
-    private void viewProducts() {
+    public void viewProducts() {
         try {
             List<Product> products = productDAO.getAllProducts();
             if (products.isEmpty()) {
@@ -90,7 +90,7 @@ public class ProductManager {
         }
     }
 
-    private void updateProduct() {
+    public void updateProduct() {
         System.out.print("Enter product ID to update: ");
         int id = scanner.nextInt();
         scanner.nextLine();
@@ -117,7 +117,7 @@ public class ProductManager {
         }
     }
 
-    private void removeProduct() {
+    public void removeProduct() {
         System.out.print("Enter product ID to remove: ");
         int id = scanner.nextInt();
         scanner.nextLine();

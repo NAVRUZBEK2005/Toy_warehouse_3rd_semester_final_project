@@ -47,7 +47,7 @@ public class CategoryManager {
     }
 
     // Category Methods
-    private void addCategory() {
+    public void addCategory() {
         System.out.print("Enter category name: ");
         String name = scanner.nextLine();
         System.out.print("Enter category description: ");
@@ -67,7 +67,7 @@ public class CategoryManager {
         }
     }
 
-    private void viewCategories() {
+    public void viewCategories() {
         try {
             List<Category> categories = categoryDAO.getAllCategories();
             if (categories.isEmpty()) {
@@ -83,7 +83,7 @@ public class CategoryManager {
         }
     }
 
-    private void updateCategory() {
+    public void updateCategory() {
         System.out.print("Enter category ID to update: ");
         int id = scanner.nextInt();
         scanner.nextLine();
@@ -103,7 +103,7 @@ public class CategoryManager {
         }
     }
 
-    private void removeCategory() {
+    public void removeCategory() {
         System.out.print("Enter category ID to remove: ");
         int id = scanner.nextInt();
         scanner.nextLine();
